@@ -1,0 +1,12 @@
+.eliminarButton {
+  background-color: rgb(245, 54, 21);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.eliminarButton:hover {
+  background-color: #980000;
+}
