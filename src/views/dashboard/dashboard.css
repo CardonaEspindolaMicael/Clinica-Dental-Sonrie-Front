@@ -5,6 +5,7 @@
   text-align: center;
   height: 100%;
 
+
   
   }
   header{
@@ -28,9 +29,9 @@
   
   .container{
     display: grid;
-    margin: 20px;
     gap: 15px;
     min-height: 100%; 
+    min-width: 100%;
     grid-template: 
     " sidebar header" 70px
     " sidebar section"auto/350px

@@ -3,7 +3,7 @@ import "./header.css"
 const Header = () => {
   const currentDate= new Date();
   return (
-    <header>
+    <header className='header5'>
       <div className='titulo_empresa'>
         <h1>{`${currentDate.getDate()}/ ${currentDate.getMonth()+1}/${currentDate.getFullYear()}`}</h1>
       </div>

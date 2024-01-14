@@ -13,6 +13,7 @@ import ActualizarPaciente from "./components/Paciente/ActualizarPaciente/Actuali
 
 
 
+
 const store = createStore({
   authName:'_auth',
   authType:'localstorage',
@@ -38,7 +39,7 @@ return <>
            </Route>
            
            <Route path="/" element={<Login />} />
-          
+
           <Route path="*" element={<NotFound />} />
          
         </Routes>

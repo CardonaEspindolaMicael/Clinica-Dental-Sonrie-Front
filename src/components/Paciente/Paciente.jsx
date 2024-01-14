@@ -58,12 +58,14 @@ const Paciente = () => {
          titulo='Actualizar'
          navigateTo='actualizarPaciente' 
          object={paciente}
-         identificador={paciente.id}/>
+         identificador={paciente.id}
+         heighButton='40px'/>
 
         <DeleteButton
                  titulo='Eliminar'
                  identificador={paciente.id}
                  elimino={setBorro}
+                 heighButton='40px'
                   />
                   
       </td>

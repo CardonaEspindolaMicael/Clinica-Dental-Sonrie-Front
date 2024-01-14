@@ -9,6 +9,8 @@ export const DeleteButton = ({
   elimino="false",
   backgroundColorButton = "#f53615", 
   colorTextButton = "#fff", 
+  heighButton = "20px",
+  widthButton = "100%",
   OnClickFn,
 }) => {
   const puntoFinal=`${endpoint}/${identificador}`
@@ -27,7 +29,7 @@ export const DeleteButton = ({
     <div
       onClick={OnClickFn ? OnClickFn : fetchUsers}
       className="containerButton__delete"
-      style={{ "--backgroundColorButton": backgroundColorButton }}
+      style={{ "--backgroundColorButton": backgroundColorButton, "--heighButton": heighButton, "--widthButton": widthButton }}
     >
       <p style={{ "--colorTextButton": colorTextButton }}>{titulo}</p>
     </div>

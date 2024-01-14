@@ -6,7 +6,7 @@ export const SuccessButton = ({
   navigateTo = "/",
   backgroundColorButton = "#A4ADB4", 
   colorTextButton = "#fff", 
-  heighButton = "20px",
+  heighButton = "20%",
   widthButton = "100%",
   OnClickFn,
 }) => {
