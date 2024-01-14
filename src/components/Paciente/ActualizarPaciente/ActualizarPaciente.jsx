@@ -43,7 +43,7 @@ const ActualizarPaciente = () => {
   return (
     <div className="pacienteContainerActualizar">
       <form className='pacienteFormActualizar' onSubmitCapture={formik.handleSubmit}>
-        <label htmlFor="documentoIdentidadPacienteAct">Documento de Identidad</label>
+        <label htmlFor="documentoIdentidadPacienteAct" {...formik.getFieldProps('idUsuario')}>Documento de Identidad</label>
         <input
           id="documentoIdentidadPacienteAct"
           name="documentoIdentidadPacienteAct"

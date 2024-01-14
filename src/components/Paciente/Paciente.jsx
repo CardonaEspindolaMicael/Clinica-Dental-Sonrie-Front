@@ -66,8 +66,8 @@ const Paciente = () => {
                  identificador={paciente.id}
                  elimino={setBorro}
                  heighButton='40px'
-                  />
-                  
+                 endpoint='api/Pacientes/Delete'
+                  />    
       </td>
       </tr>
     

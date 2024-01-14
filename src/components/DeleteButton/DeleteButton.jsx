@@ -4,7 +4,7 @@ import { usuarioApis } from '../../apis/apiUsuario';
 
 export const DeleteButton = ({
   titulo = "Eliminar",
-  endpoint="api/Pacientes/Delete",
+  endpoint="",
   identificador,
   elimino="false",
   backgroundColorButton = "#f53615", 
@@ -13,9 +13,10 @@ export const DeleteButton = ({
   widthButton = "100%",
   OnClickFn,
 }) => {
-  const puntoFinal=`${endpoint}/${identificador}`
-  console.log(puntoFinal)
+  
   const fetchUsers = async () => {
+    const puntoFinal=`${endpoint}/${identificador}`
+    console.log(puntoFinal)
     try {
       await usuarioApis.deleteCommon(puntoFinal);
       elimino(true)

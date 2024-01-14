@@ -15,6 +15,7 @@
 
 .subCuerpoPaciente>:last-child{
 display: flex;
+
 gap: 5px;
 }
 

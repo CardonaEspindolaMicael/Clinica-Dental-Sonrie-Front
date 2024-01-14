@@ -1,40 +1,64 @@
-import React from 'react'
-import pacientes from '../../json/paciente.json'
+import React, { useEffect, useState } from 'react'
 import "./Consulta.css"
+import { usuarioApis } from '../../apis/apiUsuario';
+import SuccessButton from '../../components/SuccesButton/SuccessButton';
+
 
 const Consulta = () => {
+  const [data, setData] = useState([]);
+  const [borro,setBorro]=useState(false);
+  useEffect(() => {
+    const fetchUsers = async()=>{
+      try {
+       const response = await usuarioApis.getCommon("api/Consultas");
+       setData(response)
+      } catch (error) {
+        console.log(error);
+      }
+     }
+     fetchUsers();
+  }, [,borro]);
 
   return (
-    <div className="containerConsulta">
-     <div className="containerConsulta__paciente">
-      <label>
-        <h1>CARNET PACIENTE</h1>
-        <input className="carnetPaciente" type='number' maxLength={10}/>
-      </label>
-      <label>
-        <h1>NOMBRE PACIENTE</h1>
-        <ul className='mapaPaciente' >
-        {
-         pacientes.map((paciente)=>(
-          
-            <li key={paciente.ci}>
-              {paciente.nombre}
-            </li>
-         
-         ))
-        
-        }
-         </ul>
+<div className='pacienteContainer'>
+  <div className="pacienteContainer__filtro">
+  <SuccessButton titulo='Nueva Consulta' navigateTo='nuevaConsulta' widthButton='17%' heighButton='100%'/>
+  <input type='text' className='pacienteContainer__filtrarPaciente' placeholder='paciente...'/>
 
-      </label>
-     </div>
+  </div>
+<table >
+  <thead className='cabeceraPaciente'>
+    <tr>
+      <th>Paciente</th>
+      <th>Fecha Consulta</th>
+      <th>Diagnostico</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
 
-     <textarea name='Diagnostico' rows={30} cols={120} placeholder='Escriba su diagnostico aqui...'>
-      
-     </textarea>
+    {
+      data.map((consulta)=>(
+      <tr className='subCuerpoPaciente' key={consulta.id}>
+      <td>{consulta.paciente}</td>
+      <td>{consulta.fechaConsulta}</td>
+      <td>{consulta.diagnostico}</td>
+      <td>
+      <SuccessButton titulo='Crear Proforma' navigateTo='nuevaProforma'/>   
+                  
+      </td>
+      </tr>
+    
+      ))
+     }
+  </tbody>
+</table>
+
 
     </div>
-  )
+ 
+    
+  );
 }
 
 export default Consulta
