@@ -11,3 +11,6 @@
   justify-content: center;
   width: 100%;
 }
+.custom-select {
+  height: 40px; /* Puedes ajustar la altura según tus preferencias */
+}

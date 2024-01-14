@@ -9,6 +9,8 @@ import cerrarSesion from "/iconoCerrarSesion.svg"
 import useSignOut from 'react-auth-kit/hooks/useSignOut';
 import { Link, useNavigate } from 'react-router-dom'
 import DropdownG from '../dropdown/DropdownG'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import USER from '/USER.png'
 
 const Sidebar = () => {
   const signOut = useSignOut();
@@ -28,23 +30,17 @@ const Sidebar = () => {
 
         <div className='datos__user' key={sessionStorage.getItem('idUsuario')}>
           <div>
-          <img src="https://masdearte.com/media/n_ico_paisajes6.jpg" alt="imagen_Perfil" />
+          <img src={USER} alt="imagen_Perfil" />
           <h2>{sessionStorage.getItem('idNombre')}</h2>
           </div>
-          
         </div>
-
- 
         <nav className='barra__navegacion'>
           <ul className='barra__navegacionRutas'>
             <div>
-
-             
               <li>
                 <img src={money} />
                 <Link className='barra__navegacionRutasAb' to="#">Servicios</Link>
               </li>
-     
               <li>
                 <img src={tratamiento} />
                 <Link className='barra__navegacionRutasAb'  to="#">Tratamiento</Link>
@@ -57,12 +53,10 @@ const Sidebar = () => {
                 <img src={money} />
                 <Link className='barra__navegacionRutasAb' to="/consulta">Consulta</Link>
               </li>
-
               <li>
               <img src={userIcon} />
                <DropdownG/>
               </li>
-
             </div>
             <div>
               <li>
@@ -70,12 +64,9 @@ const Sidebar = () => {
                 <a className='barra__navegacionRutasAb' onClick={logout}>Cerrar Sesion</a>
               </li>
             </div>
-
-
           </ul>
         </nav>
       </div>
-
     </aside>
   )
 }

@@ -7,6 +7,10 @@
 
 .pacienteContainer{
   display: flex;
-  justify-content: center;
+  justify-content:start;
   width: 100%;
+  height: auto;
+}
+.custom-select {
+  height: 40px; /* Puedes ajustar la altura según tus preferencias */
 }

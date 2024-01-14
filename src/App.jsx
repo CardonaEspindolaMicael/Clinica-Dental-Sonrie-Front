@@ -36,6 +36,7 @@ return <>
            <Route path="/consulta" element={<Dashboard Contenido={<Consulta/>}/>} />
            <Route path="/paciente/nuevoPaciente" element={<Dashboard Contenido={<NuevoPaciente/>}/>} />
            <Route path="/paciente/actualizarPaciente" element={<Dashboard Contenido={<ActualizarPaciente/>}/>} />
+          
            </Route>
            
            <Route path="/" element={<Login />} />
