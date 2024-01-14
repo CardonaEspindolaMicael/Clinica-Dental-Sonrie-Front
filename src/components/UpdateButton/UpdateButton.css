@@ -1,28 +1,25 @@
-.containerButton{
-  background-color: var(--backgroundColorButton);
+.containerButton__Update{
+  background-color: var(--backgroundColorButton__Update);
   width: var(--widthButton);
   max-width: fit-content;
   height: var(--heighButton);
-  color: #fff;
+  color: var(--colorTextButton);
   border-radius: 10px;
   font-weight: 600;
   display: flex;
   align-items: center;
   gap: 4px;
   padding: 5px;
-
   cursor: pointer;
-  
-
 }
 
-.containerButton>p{
+.containerButton__Update>p{
     padding-left: 10px;
   margin-right: 10px;
   font-size: 14px;
   color: var(--colorTextButton);
 }
 
-.containerButton:hover{
-  background-color: #a4adb48f;
+.containerButton__Update:hover{
+  background-color: #7605a3;
 }

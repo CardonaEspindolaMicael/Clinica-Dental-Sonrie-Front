@@ -9,18 +9,11 @@
   display: flex;
   width: 100%;
   padding-left: 20%;
-  
+
 }
-.pacienteContainer__nuevo{
-  width: 15%;
-  height: 150%;
-  margin-right: 5%;
-  background-color:#A4ADB4;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 5px 10px;
-  cursor: pointer;
+
+.subCuerpoPaciente>:last-child{
+display: flex;
 }
 
 .pacienteContainer__nuevo:hover{
@@ -30,7 +23,8 @@
 
 .pacienteContainer__filtrarPaciente{
   width: 25%;
-  height: 150%;
+  height: 99%;
+  margin-left: 10%;
 }
 .cabeceraPaciente>*{
  text-align: center;

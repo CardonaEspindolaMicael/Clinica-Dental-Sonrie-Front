@@ -1,0 +1,13 @@
+
+.pacienteFormActualizar{
+  display: flex;
+  flex-direction: column;
+  gap:5px;
+  width: 50%;
+}
+
+.pacienteContainerActualizar{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

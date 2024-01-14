@@ -23,7 +23,6 @@ export const Login = () => {
           }
         });
         sessionStorage.setItem('idUsuario',response.data.ciDoctor)
-        //sessionStorage.setItem('imagenUsuario',response.data.user.imagen)
         sessionStorage.setItem('rolUsuario',response.data.nombreRol)
         const nombre=(response.data.nombreDoctor).split(" ")
         sessionStorage.setItem('idNombre',nombre[0]+' '+nombre[1])
