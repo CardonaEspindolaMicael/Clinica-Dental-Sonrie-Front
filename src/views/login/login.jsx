@@ -1,5 +1,6 @@
 import React from 'react'
 import useSignIn from 'react-auth-kit/hooks/useSignIn';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useFormik } from "formik"
 import axios from "axios"
 import './login.css'
@@ -43,7 +44,7 @@ export const Login = () => {
   });
 
   return (
-    <div className='loginParent'>
+    /*<div className='loginParent'>
 
       <div className='loginChild'>
         <img className="logoLogin" src={logo} />
@@ -62,7 +63,21 @@ export const Login = () => {
       </div>
 
      
-    </div>
+    </div>*/
+    <main class="form-signin w-100 m-auto">
+    <form>
+    <img class="mb-4" alt="" width="300" height="200" src={logo} />
+      <div class="form-floating">
+        <input  id="floatingInput" class="form-control" type='text' placeholder='User' maxLength={100} minLength={3} {...formik.getFieldProps('nombre')} />
+        <label for="floatingInput">USUARIO</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPassword" placeholder='Password' maxLength={256} minLength={3} {...formik.getFieldProps('contrasena')}/>
+        <label for="floatingPassword">CONTRACEÑA</label>
+      </div>
+      <button class="btn btn-primary w-100 py-2" type="submit"  onClick={formik.handleSubmit}>LOGIN</button>
+    </form>
+    </main>
   )
 }
 
