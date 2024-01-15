@@ -1,28 +1,20 @@
 header{
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  
+display: flex;
+align-items: end;
+justify-content: space-between;
 } 
 
-
-.cargo_usuario{ 
- display: flex;
- height: 80%;
- align-items: center;
- padding-right: 50px;
-}
-.cargo_usuario>img{
-width: 50px;
-height: 50px;
-border-radius:100%;
+.cargo_rol{ 
+display: flex;
+height: 80%;
+align-items: center;
+padding-right: 50px;
 }
 
 
-
-.titulo_empresa>h1{
-  font-size: xx-large;
-  margin: 0;
-  padding-bottom: 10px;
-  padding-left: 50px;
+.titulo_fecha{
+display: flex;
+height: 80%;
+align-items: center;
+padding-left: 50px;
 }

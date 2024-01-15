@@ -17,6 +17,7 @@ const Paciente = () => {
       }
      }
      fetchUsers();
+     setBorro(false);
   }, [,borro]);
 
  

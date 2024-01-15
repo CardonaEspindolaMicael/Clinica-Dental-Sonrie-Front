@@ -20,7 +20,3 @@ option{
 position: fixed;
 width: 200px;
 }
-
-select:focus {
-  outline: none;
-}

@@ -1,5 +1,6 @@
 .pacienteContainer{
   height: 100%;
+  padding-top: 15px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -15,7 +16,7 @@
 
 .subCuerpoPaciente>:last-child{
 display: flex;
-
+justify-content: center;
 gap: 5px;
 }
 

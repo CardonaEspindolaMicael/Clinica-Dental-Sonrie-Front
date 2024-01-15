@@ -1,10 +1,8 @@
-
 aside {
   min-height: 100vb;
   font-size: x-large;
   border-radius: 5px;
   font-family: Arial, Helvetica, sans-serif;
-
 }
 .container__sidebar{
 
@@ -48,10 +46,7 @@ margin: 0;
   list-style-type: none;
   padding-left: 0;
   margin-top: 10px;
-  
 }
-
-
 .barra__navegacionRutas div>li{
   width: 100%;
   height: 60px;
@@ -59,8 +54,6 @@ margin: 0;
   border-radius: 5px;
   justify-content: center;
   padding-left: 10px;
-  
-
 }
 a{
   display: flex;
@@ -68,21 +61,14 @@ a{
   width: 100%;
   justify-content: flex-start;
   color: black;
-
   padding-top: 5px;
-  
 }
-
-
 li:hover{
-
   background-color:   #8FC0F1;
   border-right: 10px #0e4275 solid;
   color:#1C7FE2;
   margin-right: 5px;
-  
 }
-
 .barra__navegacionRutasAb{
   display: flex;
   align-self: center;

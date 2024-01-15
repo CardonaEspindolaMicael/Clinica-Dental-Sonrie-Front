@@ -1,20 +1,32 @@
-
 import { useFormik } from 'formik';
 import { usuarioApis } from '../../../apis/apiUsuario';
-import './NuevoPaciente.css'
-const NuevoPaciente = () => {
-
+import { useEffect, useState } from 'react';
+const NuevoDoctor = () => {
+ const [sucursales,setSucursales]= useState([])
 
   const fetchUsers = async (values) => {
     try {
-      await usuarioApis.postCommon('api/Pacientes/Create', values);
+      await usuarioApis.postCommon('api/Doctores/Create', values);
       alert("Redireccionado....")
-      window.location.href = "/paciente";
+      window.location.href = "/doctores";
     } catch (error) {
       console.log(error);
       alert(error)
     }
   }
+
+  useEffect(()=>{
+    const fetchSucursal = async () => {
+      try {
+        const sucursalesEncontradas=await usuarioApis.getCommon('api/Sucursales/');
+        setSucursales(sucursalesEncontradas);
+      } catch (error) {
+        console.log(error);
+        alert(error)
+      }
+    }
+    fetchSucursal()
+  },[])
 
   const formik = useFormik({
     initialValues: {
@@ -22,13 +34,13 @@ const NuevoPaciente = () => {
       genero: "",
       nombre: "",
       apellidos: "",
-      fechaNacimiento: "",
+      fechaNacimiento: "2024-01-15T01:09:26.472Z",
       edad: "",
       direccion: "",
       numeroCelular: "",
       correo: "",
-      ocupacion: "",
-      estadoCivil: ""
+      especialidad: "",
+      idSucursal: ""
     },
     onSubmit: values => {
       fetchUsers(values);
@@ -43,10 +55,10 @@ const NuevoPaciente = () => {
         <form className="row g-2" onSubmitCapture={formik.handleSubmit}>
 
           <div className="col-6">
-            <label htmlFor="documentoIdentidadPaciente" className="form-label">Número de Carnet</label>
+            <label htmlFor="documentoIdentidadDoctor" className="form-label">Número de Carnet</label>
             <input
-              id="documentoIdentidadPaciente"
-              name="documentoIdentidadPaciente"
+              id="documentoIdentidadDoctor"
+              name="documentoIdentidadDoctor"
               type="text"
               {...formik.getFieldProps('documentoIdentidad')}
               className="form-control "
@@ -55,10 +67,10 @@ const NuevoPaciente = () => {
           </div>
 
           <div className="col-6">
-            <label htmlFor="generoPaciente" className="form-label">Género</label>
+            <label htmlFor="generoDoctor" className="form-label">Género</label>
             <select
-              id="generoPaciente"
-              name="generoPaciente"
+              id="generoDoctor"
+              name="generoDoctor"
               {...formik.getFieldProps('genero')}
               className="form-control custom-select"
             >
@@ -69,10 +81,10 @@ const NuevoPaciente = () => {
           </div>
 
           <div className="col-6">
-            <label htmlFor="nombrePaciente" className="form-label">Nombre</label>
+            <label htmlFor="nombreDoctor" className="form-label">Nombre</label>
             <input
-              id="nombrePaciente"
-              name="nombrePaciente"
+              id="nombreDoctor"
+              name="nombreDoctor"
               type="text"
               {...formik.getFieldProps('nombre')}
               className="form-control"
@@ -81,10 +93,10 @@ const NuevoPaciente = () => {
           </div>
 
           <div className="col-6">
-            <label htmlFor="apellidosPaciente" className="form-label">Apellidos</label>
+            <label htmlFor="apellidosDoctor" className="form-label">Apellidos</label>
             <input
-              id="apellidosPaciente"
-              name="apellidosPaciente"
+              id="apellidosDoctor"
+              name="apellidosDoctor"
               type="text"
               {...formik.getFieldProps('apellidos')}
               className="form-control"
@@ -93,10 +105,10 @@ const NuevoPaciente = () => {
           </div>
 
           <div className="col-6">
-            <label htmlFor="fechaNacimientoPaciente" className="form-label">Fecha de Nacimiento</label>
+            <label htmlFor="fechaNacimientoDoctor" className="form-label">Fecha de Nacimiento</label>
             <input
-              id="fechaNacimientoPaciente"
-              name="fechaNacimientoPaciente"
+              id="fechaNacimientoDoctor"
+              name="fechaNacimientoDoctor"
               type="date"
               {...formik.getFieldProps('fechaNacimiento')}
               className="form-control"
@@ -104,10 +116,10 @@ const NuevoPaciente = () => {
           </div>
 
           <div className="col-6">
-            <label htmlFor="edadPaciente" className="form-label">Edad</label>
+            <label htmlFor="edadDoctor" className="form-label">Edad</label>
             <input
-              id="edadPaciente"
-              name="edadPaciente"
+              id="edadDoctor"
+              name="edadDoctor"
               type="number"
               {...formik.getFieldProps('edad')}
               className="form-control"
@@ -116,10 +128,10 @@ const NuevoPaciente = () => {
           </div>
 
           <div className="col-6">
-            <label htmlFor="direccionPaciente" className="form-label">Dirección</label>
+            <label htmlFor="direccionDoctor" className="form-label">Dirección</label>
             <input
-              id="direccionPaciente"
-              name="direccionPaciente"
+              id="direccionDoctor"
+              name="direccionDoctor"
               type="text"
               {...formik.getFieldProps('direccion')}
               className="form-control"
@@ -128,10 +140,10 @@ const NuevoPaciente = () => {
           </div>
 
           <div className="col-6">
-            <label htmlFor="numeroCelularPaciente" className="form-label">Teléfono Celular</label>
+            <label htmlFor="numeroCelularDoctor" className="form-label">Teléfono Celular</label>
             <input
-              id="numeroCelularPaciente"
-              name="numeroCelularPaciente"
+              id="numeroCelularDoctor"
+              name="numeroCelularDoctor"
               type="text"
               {...formik.getFieldProps('numeroCelular')}
               className="form-control"
@@ -140,10 +152,10 @@ const NuevoPaciente = () => {
           </div>
 
           <div className="col-6">
-            <label htmlFor="correoPaciente" className="form-label">Correo</label>
+            <label htmlFor="correoDoctor" className="form-label">Correo</label>
             <input
-              id="correoPaciente"
-              name="correoPaciente"
+              id="correoDoctor"
+              name="correoDoctor"
               type="text"
               {...formik.getFieldProps('correo')}
               className="form-control"
@@ -152,27 +164,34 @@ const NuevoPaciente = () => {
           </div>
 
           <div className="col-6">
-            <label htmlFor="ocupacionPaciente" className="form-label">Ocupación</label>
+            <label htmlFor="ocupacionDoctor" className="form-label">Especialidad</label>
             <input
-              id="ocupacionPaciente"
-              name="ocupacionPaciente"
+              id="ocupacionDoctor"
+              name="ocupacionDoctor"
               type="text"
-              {...formik.getFieldProps('ocupacion')}
+              {...formik.getFieldProps('especialidad')}
               className="form-control"
-              placeholder="Ejemplo: Estudiante"
             />
           </div>
 
           <div className="col-6">
-            <label htmlFor="estadoCivilPaciente" className="form-label">Estado Civil</label>
-            <input
-              id="estadoCivilPaciente"
-              name="estadoCivilPaciente"
-              type="text"
-              {...formik.getFieldProps('estadoCivil')}
-              className="form-control"
-              placeholder="Ejemplo: Soltero/a"
-            />
+            <label htmlFor="sucursalDoctor" className="form-label">Sucursales</label>
+            <select
+                id="sucursalDoctor"
+                name="sucursalDoctor"
+                {...formik.getFieldProps('idSucursal')}
+                className="form-control custom-select"
+              
+              >
+            {
+              sucursales.map((sucursal)=>(
+       
+                <option key={sucursal.id} value={sucursal.id}>{sucursal.nombre}</option>
+           
+              ))
+             
+            }   </select>
+            
           </div>
 
           <div className="row mt-5">
@@ -187,4 +206,4 @@ const NuevoPaciente = () => {
   );
 }
 
-export default NuevoPaciente;
+export default NuevoDoctor;

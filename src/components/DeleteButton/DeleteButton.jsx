@@ -16,7 +16,7 @@ export const DeleteButton = ({
   
   const fetchUsers = async () => {
     const puntoFinal=`${endpoint}/${identificador}`
-    console.log(puntoFinal)
+    console.log("El endpoint es:",puntoFinal)
     try {
       await usuarioApis.deleteCommon(puntoFinal);
       elimino(true)

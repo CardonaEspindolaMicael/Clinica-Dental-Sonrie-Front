@@ -13,6 +13,7 @@ export const UpdateButton = ({
   OnClickFn,
 }) => {
   const navigate = useNavigate();
+  console.log(object)
   return OnClickFn ? (
     <div
       onClick={OnClickFn}

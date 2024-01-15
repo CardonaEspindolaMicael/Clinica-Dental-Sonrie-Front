@@ -11,6 +11,12 @@ import Consulta from "./views/consulta/Consulta"
 import NuevoPaciente from "./components/Paciente/NuevoPaciente/NuevoPaciente"
 import ActualizarPaciente from "./components/Paciente/ActualizarPaciente/ActualizarPaciente"
 import NuevaConsulta from "./views/consulta/NuevaConsulta/nuevaConsulta"
+import Servicio from "./views/servicio/Servicio"
+import { NuevoServicio } from "./views/servicio/NuevoServicio/NuevoServicio"
+import ActualizarServicio from "./views/servicio/ActualizarServicio/ActualizarServicio"
+import Doctores from "./views/doctores/Doctores"
+import NuevoDoctor from "./views/doctores/NuevoDoctor/NuevoDoctor"
+import ActualizarDoctor from "./views/doctores/ActualizarDoctor/ActualizarDoctor"
 
 
 
@@ -29,9 +35,7 @@ return <>
       <AuthProvider store={store}>
       <BrowserRouter>
         <Routes>
- 
            <Route element={<AuthOutlet fallbackPath='/' />}>
-
            <Route path="/dashboard" element={<Dashboard />} />
 
            <Route path="/paciente" element={<Dashboard Contenido={<Paciente/>}/>} />
@@ -40,6 +44,14 @@ return <>
 
            <Route path="/consulta" element={<Dashboard Contenido={<Consulta/>}/>} />
            <Route path="/consulta/nuevaConsulta" element={<Dashboard Contenido={<NuevaConsulta />}/>} />
+
+           <Route path="/servicio" element={<Dashboard Contenido={<Servicio/>}/>} />
+           <Route path="/servicio/nuevoServicio" element={<Dashboard Contenido={<NuevoServicio/>}/>} />
+           <Route path="/servicio/actualizarServicio" element={<Dashboard Contenido={<ActualizarServicio/>}/>} />
+
+           <Route path="/doctores" element={<Dashboard Contenido={<Doctores/>}/>} />
+           <Route path="/doctores/nuevoDoctor" element={<Dashboard Contenido={<NuevoDoctor/>}/>} />
+           <Route path="/doctores/actualizarDoctor" element={<Dashboard Contenido={<ActualizarDoctor/>}/>} />
            </Route>
            
            <Route path="/" element={<Login />} />

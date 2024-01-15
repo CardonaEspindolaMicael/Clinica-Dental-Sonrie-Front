@@ -11,10 +11,10 @@ const DropdownG = () => {
 
   return (
     <select onChange={handleChange} >
-      <option value="/paciente">Pacientes</option>
-      <option value="#" >Consultas</option>
-      <option value="#">Moribundos</option>
-    </select>
+    <option value="/paciente">Pacientes</option>
+    <option value="#" >Consultas</option>
+    <option value="#">Moribundos</option>
+  </select>
   );
 };
 
