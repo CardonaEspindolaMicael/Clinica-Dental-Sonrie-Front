@@ -6,10 +6,7 @@ import NotFound from "./components/notFound/notFound"
 import AuthProvider from "react-auth-kit/AuthProvider"
 import createStore from "react-auth-kit/createStore"
 import AuthOutlet from '@auth-kit/react-router/AuthOutlet'
-import Paciente from "./components/Paciente/Paciente" 
 import Consulta from "./views/consulta/Consulta"
-import NuevoPaciente from "./components/Paciente/NuevoPaciente/NuevoPaciente"
-import ActualizarPaciente from "./components/Paciente/ActualizarPaciente/ActualizarPaciente"
 import NuevaConsulta from "./views/consulta/NuevaConsulta/nuevaConsulta"
 import Servicio from "./views/servicio/Servicio"
 import { NuevoServicio } from "./views/servicio/NuevoServicio/NuevoServicio"
@@ -17,6 +14,9 @@ import ActualizarServicio from "./views/servicio/ActualizarServicio/ActualizarSe
 import Doctores from "./views/doctores/Doctores"
 import NuevoDoctor from "./views/doctores/NuevoDoctor/NuevoDoctor"
 import ActualizarDoctor from "./views/doctores/ActualizarDoctor/ActualizarDoctor"
+import Paciente from "./views/Paciente/Paciente"
+import NuevoPaciente from "./views/Paciente/NuevoPaciente/NuevoPaciente"
+import ActualizarPaciente from "./views/Paciente/ActualizarPaciente/ActualizarPaciente"
 
 
 

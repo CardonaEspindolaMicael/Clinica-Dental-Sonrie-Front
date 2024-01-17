@@ -7,7 +7,6 @@ const ActualizarPaciente = () => {
   const location = useLocation();
   const miEstado = location.state;
   const usuarioToUpdate = miEstado.objeto;
-  console.log(usuarioToUpdate.documentoIdentidad)
   const fetchUsers = async (values) => {
     try {
       await usuarioApis.putCommon(`api/Pacientes/Update/${miEstado.identificador}`, values);

@@ -34,7 +34,7 @@
     min-width: 100%;
     grid-template: 
     " sidebar header" 70px
-    " sidebar section"auto/350px
+    " sidebar section"auto/250px
   }
   
   

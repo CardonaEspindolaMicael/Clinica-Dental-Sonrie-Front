@@ -1,15 +1,14 @@
 import React from 'react'
 import "./sidebar.css"
-import { mostrarOpciones } from '../../helpers/mostrarOpciones'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link, useNavigate } from 'react-router-dom'
 import userIcon from "/icon-userLogin.svg"
 import money from "/Money.png"
-import tratamiento from "/tratamiento.png"
 import historial from "/historial.png"
-import cerrarSesion from "/iconoCerrarSesion.svg"
 import useSignOut from 'react-auth-kit/hooks/useSignOut';
-import { Link, useNavigate } from 'react-router-dom'
-import DropdownG from '../dropdown/DropdownG'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import LogoutIcon from '/iconoCerrarSesion.svg'
+
+import logo from '/logo.png'
 import USER from '/USER.png'
 
 const Sidebar = () => {
@@ -25,55 +24,48 @@ const Sidebar = () => {
 
   }
   return (
-    <aside>
+    <aside className='Sidebar'>
       <div className="container__sidebar">
-
-        <div className='datos__user' key={sessionStorage.getItem('idUsuario')}>
-          <div>
-            <img src={USER} alt="imagen_Perfil" />
-            <h2>{sessionStorage.getItem('idNombre')}</h2>
-          </div>
+        <div className='datos__user'>
+            <img src={logo} alt="logo_clinica" />
+            <h2 className='buttonSidebar'>R</h2>
         </div>
-        <nav className='barra__navegacion'>
-          <ul className='barra__navegacionRutas'>
-            <div>
-              <li>
-                <img src={money} />
-                <Link className='barra__navegacionRutasAb' to="#">Servicios</Link>
-              </li>
-              <li>
-                <img src={tratamiento} />
-                <Link className='barra__navegacionRutasAb' to="#">Tratamiento</Link>
-              </li>
-              <li>
-                <img src={historial} />
-                <Link className='barra__navegacionRutasAb' to="/consulta">Historial Medico</Link>
-              </li>
-              <li>
-                <img src={money} />
-                <Link className='barra__navegacionRutasAb' to="/consulta">Consulta</Link>
-              </li>
-              <li>
-                <img src={userIcon} />
-                <Link className='barra__navegacionRutasAb' to="/paciente">Paciente</Link>
-              </li>
-              <li>
-                <img src={userIcon} />
-                <Link className='barra__navegacionRutasAb' to="/doctores">Doctor</Link>
-              </li>
-              <li>
-                <img src={userIcon} />
-                <Link className='barra__navegacionRutasAb' to="/servicio">Servicio</Link>
-              </li>
-            </div>
-            <div>
-              <li>
-                <img src={cerrarSesion} />
-                <a className='barra__navegacionRutasAb' onClick={logout}>Cerrar Sesion</a>
-              </li>
-            </div>
+        <nav >
+         
+          <ul className='barra__navegacion'>
+          <h5>MENU</h5>
+            <li>
+              <img src={money} />
+              <Link className='barra__navegacionRutasAb' to="#">Servicios</Link>
+            </li>
+            <li>
+              <img src={historial} />
+              <Link className='barra__navegacionRutasAb' to="#">Tratamiento</Link>
+            </li>
+            <li>
+              <img src={historial} />
+              <Link className='barra__navegacionRutasAb' to="/consulta">Historial Medico</Link>
+            </li>
+            <li>
+              <img src={userIcon} />
+              <Link className='barra__navegacionRutasAb' to="/consulta">Paciente</Link>
+            </li>
+            <li>
+
+            </li>
           </ul>
         </nav>
+        <div className='usuarioNombre'>
+           <h5>PROFILE</h5>
+          <div className='usuarioNombre__top'>
+          <img src={USER} alt="imagen_Perfil" />
+          <h6>{sessionStorage.getItem("idNombre")}</h6>
+          </div>
+          <div className='usuarioNombre__botton'>
+            <img src={LogoutIcon} />
+            <a className='barra__navegacionRutasAb' onClick={logout}>Cerrar Sesion</a>
+          </div>
+        </div>
       </div>
     </aside>
   )
