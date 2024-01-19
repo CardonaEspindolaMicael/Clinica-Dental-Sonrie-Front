@@ -17,6 +17,8 @@ import ActualizarDoctor from "./views/doctores/ActualizarDoctor/ActualizarDoctor
 import Paciente from "./views/Paciente/Paciente"
 import NuevoPaciente from "./views/Paciente/NuevoPaciente/NuevoPaciente"
 import ActualizarPaciente from "./views/Paciente/ActualizarPaciente/ActualizarPaciente"
+import Ejemplo from "./components/ejemplo/ejemplo"
+
 
 
 
@@ -32,7 +34,7 @@ function App() {
 return <>
 
 
-      <AuthProvider store={store}>
+    <AuthProvider store={store}>
       <BrowserRouter>
         <Routes>
            <Route element={<AuthOutlet fallbackPath='/' />}>
@@ -53,8 +55,8 @@ return <>
            <Route path="/doctores/nuevoDoctor" element={<Dashboard Contenido={<NuevoDoctor/>}/>} />
            <Route path="/doctores/actualizarDoctor" element={<Dashboard Contenido={<ActualizarDoctor/>}/>} />
            </Route>
-           
            <Route path="/" element={<Login />} />
+           <Route path="/ejemplo" element={<Ejemplo />} />
           <Route path="*" element={<NotFound />} />
          
         </Routes>
