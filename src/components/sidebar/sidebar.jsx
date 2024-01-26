@@ -1,44 +1,79 @@
 import React, { useState } from 'react'
-import "./sidebar.css"
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, useNavigate } from 'react-router-dom'
 import useSignOut from 'react-auth-kit/hooks/useSignOut';
-import money from "/money.svg"
-import historial from "/history.svg"
-import paciente from "/paciente.svg"
-import LogoutIcon from '/iconoCerrarSesion.svg'
-import consulta from '/consulta.svg'
-import factura from '/factura.svg'
-import medicina from '/medicine.svg'
-import doctor from '/doctor.svg'
-import sucursal from '/sucursal.svg'
-import tratamiento from '/tratamiento.svg'
+import Dropdown from '../DROPDOWN/Dropdown';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "./sidebar.css"
+import Img_Logo from '/IMG/LOGO.png'
+
+/*ICONOS*/
+import I_Paciente from '/ICONS/PACIENTE.svg'
+import I_Config from '/ICONS/CONFIGURACIONES.svg'
+import I_Doctores from '/ICONS/USUARIOS.svg'
+import I_Hospital from '/ICONS/HOSPITAL.svg'
+import I_Salir from '/ICONS/SALIR.svg'
+import I_Lista from '/ICONS/LISTA.svg'
+import I_Folder from '/ICONS/FOLDER_2.svg'
+import I_Servicios from '/ICONS/SERVICIOS.svg'
+import I_Dolar from '/ICONS/DOLAR.svg'
+import I_Archivos from '/ICONS/FOLDER.svg'
+import I_Obciones from '/ICONS/OBCIONES.svg'
+import I_Desplegar from '/ICONS/DESPLEGAR_2.svg'
+import I_Consulta from '/ICONS/CONSULTA.svg'
+import I_Check from '/ICONS/CHECK.svg'
+import I_Captura from '/ICONS/CAPTURA.svg'
+import I_Calculos from '/ICONS/CALCULOS.svg'
+import I_Cuaderno from '/ICONS/CUADERNO.svg'
+import I_Menu from '/ICONS/MENU.svg'
+import I_Receta from '/ICONS/RECETA.svg'
+import I_Usuarios_2 from '/ICONS/USUARIOS_2.svg'
 
 
-import logo from '/logo.png'
-import usuario from '/USER.png'
-import Dropdown from '../Dropdown/Dropdown';
+
+
 
 const Sidebar = () => {
+  const role = sessionStorage.getItem('rolUsuario');/*----*/
   const signOut = useSignOut();
   const navigate = useNavigate();
-  const links1 = [
-    { icon: paciente, path: '/paciente', text: 'Pacientes' },
-    { icon: consulta, path: '/consulta', text: 'Consultas' },
-    { icon: factura, path: '#', text: 'Proforma' },
+
+  const pacientes = [
+    { icon: I_Paciente, path: '/paciente', text: 'Pacientes' },
   ];
-  const links2 = [
-    { icon: paciente, path: '#', text: 'Servicios' },
-    { icon: tratamiento, path: '#', text: 'Tratamientos' },
-    { icon: sucursal, path: '#', text: 'Sucursales' },
-    { icon: doctor, path: '/doctores', text: 'Doctores' },
-    { icon: paciente, path: '#', text: 'Usuarios' },
+  const herramientas = [
+
+    { icon: I_Hospital, path: '#', text: 'Sucursales' },
+    { icon: I_Doctores, path: '/doctores', text: 'Doctores' },
   ];
+  const historiasClinicas = [
+    { icon: I_Folder, path: '/historias', text: 'Historiales' },
+    { icon: I_Archivos, path: '#', text: 'Planes de T.' },
+    { icon: I_Check, path: '#', text: 'Procedimientos' },
+  ];
+  const pagos = [
+    { icon: I_Dolar, path: '#', text: 'Registrar Pago' },
+    { icon: I_Calculos, path: '#', text: 'Recibos' },
+  ];
+  const consultas = [
+    { icon: I_Consulta, path: '/consulta', text: 'Consultas' },
+    { icon: I_Obciones, path: '#', text: 'Proforma' },
+  ];
+  const servicios = [
+    { icon: I_Servicios, path: '/servicio', text: 'Servicios' },
+    { icon: I_Obciones, path: '/Tratamientos', text: 'Tratamientos' },
+  ];
+  const usuarios = [
+    { icon: I_Usuarios_2, path: '/usuarios', text: 'Usuarios' },
+    { icon: I_Usuarios_2, path: '#', text: 'Contraceñas' },
+  ];
+  const miCuenta = [
+    { icon: I_Usuarios_2, path: '/miCuenta', text: 'Mi Cuenta' },
+  ];
+
   const logout = () => {
     signOut();
     sessionStorage.removeItem('idUsuario')
     sessionStorage.removeItem('rolUsuario')
-    //sessionStorage.removeItem('imagenUsuario')
     sessionStorage.removeItem('idNombre')
     navigate("/")
 
@@ -47,35 +82,58 @@ const Sidebar = () => {
     <aside className='Sidebar'>
       <div className="container__sidebar">
         <div className='datos__user'>
-          <img src={logo} alt="logo_clinica" />
+          <img src={Img_Logo} alt="logo_clinica" />
         </div>
         <nav >
           <ul className='barra__navegacion'>
             <h5>MENU</h5>
-            <Dropdown title="Overview" links={links1} />
-            <li>
-              <img src={money} />
-              <Link className='barra__navegacionRutasAb' to="#">Pagos</Link>
-            </li>
-            <li>
-              <img src={medicina} />
-              <Link className='barra__navegacionRutasAb' to="#">Tratamiento</Link>
-            </li>
-            <li>
-              <img src={historial} />
-              <Link className='barra__navegacionRutasAb' to="/consulta">Historias Clinicas</Link>
-            </li>
-            <Dropdown title="Herramientas" links={links2} />
+
+            {role == 'ADMIN' && (
+              <li>
+                <Dropdown title="Pacientes" links={pacientes} icon={I_Menu} />
+              </li>
+            )}
+            {role == 'ADMIN' && (
+              <li>
+                <Dropdown title="Consultas" links={consultas} icon={I_Menu} />
+              </li>
+            )}
+            {role == 'ADMIN' && (
+              <li>
+                <Dropdown title="Historias Clinicas" links={historiasClinicas} icon={I_Menu} />
+              </li>
+            )}
+
+            {role == 'ADMIN' && (
+              <li>
+                <Dropdown title="Pagos" links={pagos} icon={I_Menu} />
+              </li>
+            )}
+            {role == 'ADMIN' && (
+              <li>
+                <Dropdown title="Servicios" links={servicios} icon={I_Menu} />
+              </li>
+            )}
+            {role == 'ADMIN' && (
+              <li>
+                <Dropdown title="Herramientas" links={herramientas} icon={I_Menu} />
+              </li>
+            )}
+            {role == 'ADMIN' && (
+              <li>
+                <Dropdown title="Usuarios" links={usuarios} icon={I_Menu} />
+              </li>
+            )}
+            {role == 'ADMIN' && (
+              <li>
+                <Dropdown title="Cuenta" links={miCuenta} icon={I_Menu} />
+              </li>
+            )}
           </ul>
         </nav>
         <div className='usuarioNombre'>
-          <h5>PROFILE</h5>
-          <div className='usuarioNombre__top'>
-            <img src={usuario} alt="imagen_Perfil" />
-            <h6>{sessionStorage.getItem("idNombre")}</h6>
-          </div>
           <div className='usuarioNombre__botton'>
-            <img src={LogoutIcon} />
+            <img src={I_Salir} />
             <a className='barra__navegacionRutasAb' onClick={logout}>Cerrar Sesion</a>
           </div>
         </div>

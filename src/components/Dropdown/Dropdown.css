@@ -11,7 +11,7 @@
 }
 .dropdown-menuactivate {
   opacity: 1;
-  max-height: 100px; 
+  max-height: 150px; 
   transition: opacity 0.5s, max-height 0.8s;
 }
 
@@ -40,16 +40,13 @@
   align-self: center;
 }
 .dropdown-item:hover {
-  background-color: #CDCCCA !important; 
+  background-color: #0707078b !important; 
   transition: background-color 0.5s ease ;
   border-radius: 10px;
   width: 100%;
-  
 }
 .flechaCambio{
-
   width: 20px !important;
-
 }
 
 

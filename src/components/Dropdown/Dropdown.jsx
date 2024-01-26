@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import circulo from '/circle.svg'
-import flecha from '/flecha.svg'
+import I_Desplegar from '/ICONS/DESPLEGAR_2.svg'
+
 import './Dropdown.css'
-const Dropdown = ({ title, links }) => {
+const Dropdown = ({ title, links,icon}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return ( 
@@ -11,13 +11,12 @@ const Dropdown = ({ title, links }) => {
   <div className='dropdownContainer'>
     <li onMouseEnter={() => setIsOpen(!isOpen)} onMouseLeave={()=>setIsOpen(false)}>
     <div>
-      <img src={circulo} />
+      <img src={icon} />
         <Link className='barra__navegacionRutasAb' to="#">{title}</Link>
-      
       </div>
       <div>
-        <img className='flechaCambio' src={flecha} />
-        </div>
+        <img className='flechaCambio' src={I_Desplegar} />
+      </div>
       
       </li>
       <div className={`dropdown-menu${isOpen ? 'activate' : 'inactive'}`} onMouseEnter={()=>setIsOpen(isOpen)} onMouseLeave={()=>setIsOpen(!isOpen)}>
