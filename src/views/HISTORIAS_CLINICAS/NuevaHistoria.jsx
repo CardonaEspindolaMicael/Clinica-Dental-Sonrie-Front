@@ -14,9 +14,8 @@ const NuevaHistoria = () => {
 
   const fetchUsers = async (values) => {
     try {
-      const res = await ApiRequests.postCommon('api/HistorialesClinicas/CreateHC', values);
+      const res = await ApiRequests.postCommonHC('api/HistorialesClinicas/CreateHC', values);
       const codigoHistoriaClinica = res.codigo;
-
       setShowSuccess(true);  // Muestra mensaje de éxito
       setMessage(`Se registró con éxito la historia clínica con el código # ${codigoHistoriaClinica}`);
       setTimeout(() => {

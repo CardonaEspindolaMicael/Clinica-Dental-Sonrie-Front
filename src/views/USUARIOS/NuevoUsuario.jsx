@@ -16,14 +16,13 @@ const NuevoUsuario = () => {
 
     const fetchUsers = async (values) => {
         try {
-            res = await ApiRequests.postCommon('api/Usuarios/Create', values);
+            await ApiRequests.postCommon('api/Usuarios/Create', values);
             setShowSuccess(true);  // Muestra mensaje de éxito
             setTimeout(() => {
                 setShowSuccess(false); // Oculta el mensaje después de 3 segundos
                 navigate(-1); // Redirecciona después del mensaje
             }, 2000);
         } catch (error) {
-            alert(error)
             console.log(error);
             setShowError(true); // Muestra mensaje de error
             setTimeout(() => {
@@ -38,7 +37,6 @@ const NuevoUsuario = () => {
                 setRoles(RolesEncontradas);
             } catch (error) {
                 console.log(error);
-                alert(error)
             }
         }
         fetchRoles();
@@ -48,7 +46,6 @@ const NuevoUsuario = () => {
                 setDoctores(DoctoresEncontradas);
             } catch (error) {
                 console.log(error);
-                alert(error)
             }
         }
         fetchDoctor()

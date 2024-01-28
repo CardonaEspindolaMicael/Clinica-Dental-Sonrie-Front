@@ -29,12 +29,25 @@ async function postCommon(endpoint,values){
 
   axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('_auth')}`;
   try {
-       await axios.post(
+    await axios.post(
       import.meta.env.VITE_BASE_URL+endpoint,
       values
     );
   } catch (error) {
-    alert(error)
+    return error ;
+  }
+}
+async function postCommonHC(endpoint,values){
+
+  axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('_auth')}`;
+  try {
+    const response = await axios.post(
+      import.meta.env.VITE_BASE_URL+endpoint,
+      values
+    );
+    return response.data;
+  } catch (error) {
+    return error ;
   }
 }
 
@@ -68,4 +81,5 @@ export const ApiRequests={
   postCommon,
   putCommon,
   deleteCommon,
+  postCommonHC
 }

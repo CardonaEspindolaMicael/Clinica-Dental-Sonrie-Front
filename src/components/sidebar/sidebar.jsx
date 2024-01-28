@@ -88,23 +88,23 @@ const Sidebar = () => {
           <ul className='barra__navegacion'>
             <h5>MENU</h5>
 
-            {role == 'ADMIN' && (
+            {role == 'DOCTOR' && (
               <li>
                 <Dropdown title="Pacientes" links={pacientes} icon={I_Menu} />
               </li>
             )}
-            {role == 'ADMIN' && (
+            {role == 'DOCTOR' && (
               <li>
                 <Dropdown title="Consultas" links={consultas} icon={I_Menu} />
               </li>
             )}
-            {role == 'ADMIN' && (
+            {role == 'DOCTOR' && (
               <li>
                 <Dropdown title="Historias Clinicas" links={historiasClinicas} icon={I_Menu} />
               </li>
             )}
 
-            {role == 'ADMIN' && (
+            {role == 'DOCTOR' && (
               <li>
                 <Dropdown title="Pagos" links={pagos} icon={I_Menu} />
               </li>
@@ -124,7 +124,7 @@ const Sidebar = () => {
                 <Dropdown title="Usuarios" links={usuarios} icon={I_Menu} />
               </li>
             )}
-            {role == 'ADMIN' && (
+            {role == 'DOCTOR' && (
               <li>
                 <Dropdown title="Cuenta" links={miCuenta} icon={I_Menu} />
               </li>

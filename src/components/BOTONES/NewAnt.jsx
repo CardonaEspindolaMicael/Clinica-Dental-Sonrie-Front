@@ -10,14 +10,14 @@ export const NewAntButton = ({
   const navigate = useNavigate();
   return OnClickFn ? (
     <button onClick={OnClickFn}
-      type="button" className="btn btn-outline-info">
+      type="button" className="btn btn-outline-info  mt-3">
       {titulo}
     </button>
   ) : (
 
     <button
       onClick={() => navigate(navigateTo, { state: { identificador: identificador } })}
-      type="button" className="btn btn-outline-info">
+      type="button" className="btn btn-outline-info  mt-3">
           {titulo}
     </button>
   );

@@ -37,6 +37,7 @@ import NuevoAntecedentePatologico from "./views/HISTORIAS_CLINICAS/ANTECEDENTES/
 
 import Usuarios from "./views/USUARIOS/Usuarios"
 import NuevoUsuario from "./views/USUARIOS/NuevoUsuario"
+import RestablecerContraceña from "./views/USUARIOS/RestablecerContraseña"
 
 
 
@@ -63,6 +64,7 @@ return <>
 
            <Route path="/usuarios" element={<Dashboard Contenido={<Usuarios/>}/>} />
            <Route path="/usuarios/nuevoUsuario" element={<Dashboard Contenido={<NuevoUsuario/>}/>} />
+           <Route path="/usuarios/restablecerContraceña" element={<Dashboard Contenido={<RestablecerContraceña/>}/>} />
            
            <Route path="/paciente" element={<Dashboard Contenido={<Paciente/>}/>} />
            <Route path="/paciente/nuevoPaciente" element={<Dashboard Contenido={<NuevoPaciente/>}/>} />

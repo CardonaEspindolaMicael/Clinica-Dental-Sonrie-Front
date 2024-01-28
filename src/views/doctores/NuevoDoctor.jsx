@@ -50,19 +50,19 @@ const NuevoDoctor = () => {
       genero: "",
       nombre: "",
       apellidos: "",
-      fechaNacimiento: "2024-01-15T01:09:26.472Z",
+      fechaNacimiento: "",
       edad: "",
       direccion: "",
       numeroCelular: "",
       correo: "",
       especialidad: "",
-      idSucursal: ""
+      idSucursal: 1
     },
     onSubmit: values => {
       fetchUsers(values);
     },
   });
-
+console.log(formik)
   return (
     <form style={{ margin: '20px 50px 0 50px' }} className="row  mt-6 g-2 needs-validation " novalidate onSubmitCapture={formik.handleSubmit}>
       {showSuccess && <Notification message="¡Operación exitosa!" isSuccess={true} />}
@@ -202,7 +202,7 @@ const NuevoDoctor = () => {
 
           {
             sucursales.map((sucursal) => (
-              <option key={sucursal.id} value={sucursal.id}>{sucursal.nombre}</option>
+              <option key={sucursal.id} value={parseInt(sucursal.id)}>{sucursal.nombre}</option>
             ))
           }
         </select>

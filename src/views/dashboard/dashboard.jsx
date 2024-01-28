@@ -8,7 +8,7 @@ const Dashboard = ({Contenido}) => {
     <div style={{backgroundColor:'#283048' }} className="container">
     <Header className="header "/>
     <Sidebar className="sidebar "/>
-    <section className="bg-dark text-light">
+    <section className="bg-dark text-light ">
      {Contenido} 
     </section>
   </div>   

@@ -56,6 +56,9 @@ const Usuarios = () => {
             <th>Doctor</th>
             <th>Rol</th>
             <th>Sucursal</th>
+            <td>
+            Acciones
+            </td>
           </tr>
         </thead>
         <tbody>
@@ -67,6 +70,14 @@ const Usuarios = () => {
                 <td>{Usuario.nombreDoctor}</td>
                 <td>{Usuario.nombreRol}</td>
                 <td>{Usuario.nombreSucural}</td>
+                <td>
+                <IrButton 
+                    navigateTo='restablecerContraceña'
+                    object={Usuario}
+                    identificador="1"
+                  />
+
+                </td>
               </tr>
             ))
           }

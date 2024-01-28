@@ -14,20 +14,12 @@ const NuevoPaciente = () => {
   const fetchUsers = async (values) => {
     try {
       var res = await ApiRequests.postCommon('api/Pacientes/Create', values);
-      if (res != null) {
         setShowSuccess(true);  // Muestra mensaje de éxito
         setTimeout(() => {
           setShowSuccess(false); // Oculta el mensaje después de 3 segundos
           navigate(-1); // Redirecciona después del mensaje
         }, 2000);
-      }
-      else {
-        console.log(error);
-        setShowError(true); // Muestra mensaje de error
-        setTimeout(() => {
-          setShowError(false); // Oculta el mensaje después de 3 segundos
-        }, 2000);
-      }
+     
     } catch (error) {
       console.log(error);
       setShowError(true); // Muestra mensaje de error
